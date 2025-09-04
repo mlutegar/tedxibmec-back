@@ -1,3 +1,4 @@
 djangorestframework
 django
 drf-yasg
+django-cors-headers

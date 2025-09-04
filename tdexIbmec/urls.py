@@ -1,8 +1,11 @@
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include, re_path
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
+
+from tdexIbmec.settings import BASE_DIR
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -15,8 +18,8 @@ schema_view = get_schema_view(
     ),
     public=True,
     permission_classes=(permissions.AllowAny,),
-    # url='https://gtddjango.fly.dev',
-    url='http://127.0.0.1:8000/',
+    url='https://tedxibmec.fly.dev/',
+    # url='http://127.0.0.1:8000/',
 )
 
 urlpatterns = [
@@ -31,3 +34,9 @@ urlpatterns = [
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0),
          name='schema-redoc'),
 ]
+
+# no DEBUG ou usando WhiteNoise, mapeia /imagens/ para a pasta build/imagens
+urlpatterns += static(
+    '/imagens/',
+    document_root=BASE_DIR / 'frontend' / 'build' / 'imagens'
+)

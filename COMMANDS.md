@@ -54,6 +54,12 @@ Para criar um super usuário, execute o comando abaixo:
 $ python manage.py createsuperuser
 ```
 
+Usar o collectstatic para coletar os arquivos estáticos, execute o comando abaixo:
+
+```bash
+python manage.py collectstatic
+```
+
 Criar um app no Django, execute o comando abaixo:
 
 ```bash
@@ -104,6 +110,12 @@ Para dá deploy no fly, execute o comando abaixo:
 
 ```bash
 fly deploy
+```
+
+Para criar um volume no fly, execute o comando abaixo:
+
+```bash
+fly volume create nome_do_volume --size 1
 ```
 
 Para ver a lista de volumes, execute o comando abaixo:
